@@ -237,7 +237,7 @@ test.group('Validator Middleware', (group) => {
   })
 
   test('call next when there is no authorize method and validation passes', async (assert) => {
-    let authorizedCalled = false
+    const authorizedCalled = false
     let nextCalled = false
 
     const request = {
@@ -462,7 +462,7 @@ test.group('Validator Middleware', (group) => {
     try {
       await middleware.handle({}, function () {}, [])
     } catch ({ message }) {
-      assert.equal(message, `Cannot validate request without a validator. Make sure to call Route.validator('validatorPath')`)
+      assert.equal(message, 'Cannot validate request without a validator. Make sure to call Route.validator(\'validatorPath\')')
     }
   })
 
