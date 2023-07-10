@@ -111,7 +111,7 @@ class ValidatorMiddleware {
      */
     if (!data) {
       const files = typeof (request.files) === 'function' ? request.files() : {}
-      data = Object.assign({}, request.all(), files)
+      data = _.merge({}, request.all(), files)
     }
 
     /**
